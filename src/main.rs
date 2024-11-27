@@ -21,8 +21,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let post = Post {
         content: String::from("message send by a rust client in #gepruts"),
         embeds: vec![Embed {
-            title: "webhook".to_string(),
-            description: "Check out the code @ https://github.com/ReneKrewinkel/discord-api".to_string(),
+            title: String::from("webhook"),
+            description: String::from("Check out the code @ https://github.com/ReneKrewinkel/discord-api")
         }],
     };
 
@@ -36,10 +36,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .send()
         .await?;
 
-    if response.status().is_success() {
-        println!("Response: {}", response.text().await?);
-    } else {
-        eprintln!("Failed to send POST request: {}", response.status());
+    match response.status().is_success() {
+        true => println!("Response: {}", response.status()),
+        false => eprintln!("Failed to send POST request: {}", response.status()),
     }
 
     Ok(())
