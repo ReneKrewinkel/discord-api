@@ -16,13 +16,13 @@ struct Post {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let url = "provide your discord webhook url here";
+    let url = "PROVIDE_YOUR_WEBHOOK_URL_HERE";
 
     let post = Post {
         content: String::from("message send by a rust client in #gepruts"),
         embeds: vec![Embed {
             title: "webhook".to_string(),
-            description: "this is a message from an external application".to_string(),
+            description: "Check out the code @ https://github.com/ReneKrewinkel/discord-api".to_string(),
         }],
     };
 
