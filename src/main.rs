@@ -17,12 +17,14 @@ struct Post {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     let url = "PROVIDE_YOUR_WEBHOOK_URL_HERE";
-
+    // TODO: read the webhook url from the environment or config file
     let post = Post {
         content: String::from("message send by a rust client in #gepruts"),
         embeds: vec![Embed {
             title: String::from("webhook"),
-            description: String::from("Check out the code @ https://github.com/ReneKrewinkel/discord-api")
+            description: String::from(
+                "Check out the code @ https://github.com/ReneKrewinkel/discord-api",
+            ),
         }],
     };
 
